@@ -131,7 +131,7 @@ td {
 .regre {
     background-color: var(--primario);
     width: 100px;
-    margin: 1px 400px;
+    margin: 1px 20px;
 }
 
 
@@ -139,7 +139,8 @@ td {
 
 .forma {
     justify-content: center;
-    margin: 77px auto;
+    margin: auto;
+    margin-bottom: 87px;
     width: 600px;
 }
 
@@ -155,7 +156,7 @@ legend {
 
 .tarjeta {
     align-items: center;
-    margin: 50px auto;
+    margin: 10px auto;
     width: 500px;
     font-size: 30px;
 }
@@ -241,7 +242,7 @@ a.titulo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 70px;
+    margin-bottom: 10px;
 }
 
 .navegacion-principal a {

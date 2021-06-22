@@ -72,17 +72,20 @@
 </head>
 
 <body>
+<?php
+    session_start();
+?>
 
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
             <a href="Bienvenido.php">Inicio</a>
             <a href="B1.-Listadmins.php">Lista de administradores</a>
             <a href="B3.-Alta.php">Alta de administradores</a>
-            <a href="B5.-Editar.php">Edición de administradores</a> 
-            <a href="B4.-Detalles.php">Detalles de administradores</a> 
+            <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
+            <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> <!--Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
-
+    <a href="B1.-Listadmins.php"><input class="boton regre" type="button" value="Regresar"> </a>
     <div class="forma">
         <form id="forma1" name="forma1" class="row g-3" action="../Back/alta.php" enctype="multipart/form-data">
             <div class="row g-3">
@@ -121,7 +124,7 @@
             <br><br>
             <div class="col-12">
                 <input id="boton" class="boton" type="button" value="Registrar">
-                <a href="B1.-Listadmins.php"><input class="boton regre" type="button" value="Regresar" />
+                
             </div>
         </form>
         <div>
