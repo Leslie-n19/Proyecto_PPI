@@ -27,18 +27,18 @@
         require "../Back/conecta.php";
 
         session_start();
-        $nombre = $_SESSION['nombre'];
-        $id = $_SESSION['aidi'];
+        //$nombre = $_SESSION['nombre'];
+        //$id = $_SESSION['id'];
         
-        $sql = "SELECT * FROM administradores WHERE id = '$id'";
+        /*$sql = "SELECT * FROM administradores WHERE id = '.$_SESSION['id']'";
         $res = mysqli_query($con, $sql);
         $row = mysqli_fetch_assoc($res);
         $rol = $row['rol'];
-        $estatus = $row['estatus'];
+        $estatus = $row['estatus'];*/
 
-            if($_SESSION['nombre']==$nombre){
-                echo $nombre = $_SESSION['nombre'];
-                echo $id = $_SESSION['aidi'];
+            if(isset($_SESSION['id'])){
+                echo $id = $_SESSION['id'];
+                
             }
     ?>
 

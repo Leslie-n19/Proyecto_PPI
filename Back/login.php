@@ -17,7 +17,7 @@ if($fila==0){
 
 else{
     $nombre = $row['nombre'];
-    $id = $row['aidi'];
+    $id = $row['id'];
 
     session_start();
     $_SESSION['nombre'] = $nombre;
