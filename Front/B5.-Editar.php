@@ -74,8 +74,11 @@
 
 <body>
 <?php
-    session_start();
+    require("../Back/sesion.php");
+    if($estado)
+       {   
 ?>
+
 
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
@@ -87,77 +90,87 @@
         </nav>
     </div>
     <a href="B1.-Listadmins.php"><input class="boton regre" type="button" value="Regresar"></a>
-    <?php
-    require "../Back/conecta.php";
 
-    $id = $_GET["id"];
-    $sql = "SELECT * FROM administradores WHERE id = '$id'";
-    $res = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($res);
-    $rol = $row['rol'];
+    <?php
+        require "../Back/conecta.php";
+
+        $id = $_GET["id"]; ///Se toma el ID, que viene del boton(ya sea en la lista de administradores o en el menú )
+        $sql = "SELECT * FROM administradores WHERE id = '$id'";
+        $res = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($res);
+        $rol = $row['rol'];
     ?>
 
     <div class="forma edicion">
-        <form id="forma1" name="forma1" class="row g-3" enctype="multipart/form-data">
-            <div class="row g-3">
-                <legend>Edición de administradores</legend>
-                <div class="col">
-                    <input type="text" name="id" style="display:none" value="<?= $row['id']; ?>">
-                    <label for="inputEmail4" class="form-label">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" value="<?= $row['nombre']; ?>">
-                </div>
-                <div class="col">
-                    <label for="inputEmail4" class="form-label">Apellidos</label>
-                    <input type="text" name="apellido" class="form-control" value="<?= $row['apellidos']; ?>">
-                </div>
-            </div>
-            <div class="col-md-11">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="text" name="correo" value="<?= $row['correo']; ?>" class="form-control" id="correo">
+    
+                    <form id="forma1" name="forma1" class="row g-3" enctype="multipart/form-data">
+                    <div class="row g-3">
+                        <legend>Edición de administradores</legend>
+                        <div class="col">
+                            <input type="text" name="id" style="display:none" value="<?= $row['id']; ?>">
+                            <label for="inputEmail4" class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" value="<?= $row['nombre']; ?>">
+                        </div>
+                        <div class="col">
+                            <label for="inputEmail4" class="form-label">Apellidos</label>
+                            <input type="text" name="apellido" class="form-control" value="<?= $row['apellidos']; ?>">
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="text" name="correo" value="<?= $row['correo']; ?>" class="form-control" id="correo">
+                        <div>
+                            <h5 style="display: none" id='heading'> </h5>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" name="contraseña" class="form-control" id="inputPassword4" value=<?=$row['pass'];?> >
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Selecciona rol</label>
+                        <select name="rol" id="rol" id="inputState" class="form-select">
+                            <option value="0"> <?php
+                                                if ($rol == 1) {
+                                                    echo 'Administrador';
+                                                } else {
+                                                    echo 'Ejecutivo';
+                                                }
+                                                ?></p>
+                            </option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Ejecutivo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <img height="200" src="../img/<?= $row['archivo_n'] ?>">
+                        Editar imagen:<input type="file" id="archivo" name="archivo" required>
+                    </div>
+                    <br><br>
+                    <div class="col-12">
+                        <input id="boton" class="boton" type="button" value="Editar">
+                    </div>
+                </form>
                 <div>
-                    <h5 style="display: none" id='heading'> </h5>
+                    <p style="display: none">Faltan datos por llenar</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" name="contraseña" class="form-control" id="inputPassword4" value=<?=$row['pass'];?> >
-            </div>
-            <div class="col-md-4">
-                <label for="inputState" class="form-label">Selecciona rol</label>
-                <select name="rol" id="rol" id="inputState" class="form-select">
-                    <option value="0"> <?php
-                                        if ($rol == 1) {
-                                            echo 'Administrador';
-                                        } else {
-                                            echo 'Ejecutivo';
-                                        }
-                                        ?></p>
-                    </option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Ejecutivo</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <img height="200" src="../img/<?= $row['archivo_n'] ?>">
-                Editar imagen:<input type="file" id="archivo" name="archivo" required>
-            </div>
-            <br><br>
-            <div class="col-12">
-                <input id="boton" class="boton" type="button" value="Editar">
-            </div>
-        </form>
-        <div>
-            <p style="display: none">Faltan datos por llenar</p>
-        </div>
-    </div>
-    <script>
-        $("#boton").click(function() { /// Cuando se haga click en el elemento con id buton se iniciara una funcion
-            if (!recibe()) { //Dentro de la funcion validara si la funcion recibe es incorrecta
-                $("p").show("slow"); //Si es incorrecta mostrara un elemento <p>
-                $("p").hide(5000); //despues lo escondera
-            }
-        });
-    </script>
+            <script>
+                $("#boton").click(function() { /// Cuando se haga click en el elemento con id buton se iniciara una funcion
+                    if (!recibe()) { //Dentro de la funcion validara si la funcion recibe es incorrecta
+                        $("p").show("slow"); //Si es incorrecta mostrara un elemento <p>
+                        $("p").hide(5000); //despues lo escondera
+                    }
+                });
+            </script>
+                <?php
+                }//if sesion
+                else{
+                $estado = false;
+                    header ("location:../index.php");
+                }
+                ?>
+       
 </body>
 
 </html>

@@ -59,6 +59,11 @@
             
         </head>
         <body>
+        <?php
+            require("./Back/sesion.php");
+            if($estado==false)
+            {   
+        ?>
             <form id="forma1" name="forma1" method="POST" class="form-login">
             <!--<h2>Iniciar Sesión</h2-->
             <h1><a class="inicio">Iniciar</a> <a class="sesion">sesión</a></h1>
@@ -86,5 +91,13 @@
                     }
                 });
             </script>
+
+            <?php
+                }//if sesion
+                else{
+                $estado = true;
+                    header ("location:./Front/Bienvenido.php");
+                }
+            ?>
         </body>
 </html>

@@ -11,7 +11,9 @@
 <body>
 
 <?php
-    session_start();
+    require("../Back/sesion.php");
+    if($estado)
+       {   
 ?>
 
     <div class="nav-bg">
@@ -27,18 +29,18 @@
         <div class="card-body bienvenida">
             <h1>Hola y bienvenid@</h1>
             <?php
-                $estado = false;
+                /*$estado = false;
 
                 if(isset($_SESSION['nombre']))
                 {
-                    $estado = true;
+                    $estado = true;*/
                     echo "<h2>", $_SESSION['nombre'], "</h2>";
-                }
+                /*}
                 else{
                 $estado = false;
                     header ("location:../index.php");
-                }
-                ?>
+                }*/
+            ?>
             <div class="menu">
             <a href="B1.-Listadmins.php"><input class="botonwel" type="button" value="Lista de administradores" />
             <br>
@@ -49,5 +51,12 @@
             </div>
             
         </div>
+        <?php
+                }//if sesion
+                else{
+                $estado = false;
+                    header ("location:../index.php");
+                }
+                ?>
 </body>
 </html>

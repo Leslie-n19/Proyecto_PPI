@@ -73,8 +73,10 @@
 
 <body>
 <?php
-    session_start();
-?>
+    require("../Back/sesion.php");
+    if($estado)
+       {   
+?><!--Inici de If para validar sesion activa-->
 
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
@@ -141,6 +143,13 @@
         });
     </script>
 
+            <?php
+                }//if sesion
+                else{
+                $estado = true;
+                    header ("location:Bienvenido.php");
+                }
+            ?><!--Fin del if para validar que no se ha iniciado sesion-->
 
 </body>
 
