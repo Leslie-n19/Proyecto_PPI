@@ -87,7 +87,7 @@
             <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> <!--Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
-    <a href="B1.-Listadmins.php"><input class="boton regre" type="button" value="Regresar"> </a>
+    <a href="../Front/Lista_productos.php"><input class="boton regre" type="button" value="Regresar"> </a>
     <div class="forma">
         <form id="forma1" name="forma1" class="row g-3" action="../Back/alta.php" enctype="multipart/form-data">
             <div class="row g-3">

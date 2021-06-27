@@ -41,7 +41,7 @@
             <img height="200" src="../img/<?= $row['archivo_n'] ?>">
             <h1 class="card-title">Nombre: <?= $row['nombre'] ?> Código:<?= $row['codigo'] ?></h1>
             <p class="card-text">Descripción: <?= $row['descripcion'] ?></p>
-            <p class="card-text">Costo: <?= $row['costo'] ?></p>
+            <p class="card-text">Costo: $<?= $row['costo'] ?></p>
             <p class="card-text">Stock: <?= $row['stock'] ?></p>
             <a href="../Front/Lista_productos.php" class="boton">Lista de Productos</a>
         </div>
