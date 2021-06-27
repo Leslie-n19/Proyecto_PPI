@@ -18,7 +18,7 @@
                     $(this).parent().parent().fadeOut(); /// es la animacion para hacer desaparecer algo
 
                     $.ajax({
-                        url: '../Back/B2.-Eliminar.php', /// a donde lo vas a mandar
+                        url: '../Back/eliminar_productos.php', /// a donde lo vas a mandar
                         type: 'post', /// voy a enviar algo
                         dataType: 'text', /// voy a mandar texto lineal 
                         data: 'id=' + fila, // atributo que vas a mandar +su valor 
@@ -67,7 +67,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="titulo">Lista de productos</h5>
-                <a href="../Back/productos_alta.php" target="black" class=".registro">Resgitrar nuevo libro</a>
+                <a href="../Back/productos_alta.php" target="black" class=".registro">Registrar nuevo libro</a>
             </div>
         </div>
 
