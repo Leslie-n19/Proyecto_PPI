@@ -113,7 +113,7 @@
                             <?= $objeto->codigo ?>
                         </td>
                         <td><input class="boton1 delete" id="eliminar" type="button" value="eliminar" /><br></td>
-                        <td><a href="B4.-Detalles.php?id=<?= $objeto->id ?>"><input class="boton" type="button" value="detalles" /><br></td>
+                        <td><a href="../Back/detalles_productos.php?id=<?=$objeto->id ?>"><input class="boton" type="button" value="detalles" /><br></td>
                         <td><a href="B5.-Editar.php?id=<?= $objeto->id ?>"><input class="boton" type="button" value="editar" /><br></td>
                     </tr>
                 </tbody>
