@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 
     <?php
-    require "conecta.php";
+    require "../funciones/conecta.php";
 
     $id = $_GET["id"];
     $sql = "SELECT * FROM productos WHERE id = '$id'";
@@ -21,7 +21,7 @@
 
 <body>
 <?php
-    require("sesion.php");
+    require("../funciones/sesion.php");
     if($estado)
        {   
 ?><!--Inicio de If para validar sesion activa-->
@@ -44,7 +44,7 @@
             <p class="card-text">Descripción: <?= $row['descripcion'] ?></p>
             <p class="card-text">Costo: $<?= $row['costo'] ?></p>
             <p class="card-text">Stock: <?= $row['stock'] ?></p>
-            <a href="../Front/Lista_productos.php" class="boton">Lista de Productos</a>
+            <a href="Lista_productos.php" class="boton">Lista de Productos</a>
         </div>
     </div>
     <?php

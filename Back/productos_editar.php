@@ -42,7 +42,7 @@
                     var form = $('#forma1')[0];
                     var data = new FormData(form);
                     $.ajax({
-                        url: 'editar_productos.php',
+                        url: '../funciones/editar_productos.php',
                         type: 'POST',
                         dataType: 'text',
                         data: data,
@@ -56,7 +56,7 @@
                             }
                             if (res == 1) {
                                 alert("Edicion completada");
-                                location.href = "../Front/Lista_productos.php";
+                                location.href = "Lista_productos.php";
                             }
                             if (res == 2) {
                                 existe(res);
@@ -72,26 +72,27 @@
 
 <body>
 <?php
-    require("sesion.php");
+    require("../funciones/sesion.php");
     if($estado)
        {   
 ?>
-
-
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
-            <a href="../Front/Bienvenido.php">Inicio</a>
-            <a href="B1.-Listadmins.php">Administradores</a>
+            <a href="Bienvenido.php">Inicio</a>
+            <a href="Listadmins.php">Administradores</a>
             <a href="Lista_productos.php">Productos</a>
+            <a href="banners.php">Banners</a>
+            <a href="#">Pedidos</a>
+            <a href="../funciones/cerrarSesion.php">Cerrar Sesion</a>
            <!-- <a href="B3.-Alta.php">Alta de administradores</a>
             <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
             <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
-    <a href="../Front/Lista_productos.php"><input class="boton regre" type="button" value="Regresar"></a>
+    <a href="Lista_productos.php"><input class="boton regre" type="button" value="Regresar"></a>
 
     <?php
-        require "conecta.php";
+        require "../funciones/conecta.php";
 
         $id = $_GET["id"]; ///Se toma el ID, que viene del boton(ya sea en la lista de administradores o en el menú )
         $sql = "SELECT * FROM productos WHERE id = '$id'";

@@ -28,7 +28,7 @@
                     var data = new FormData(form);
 
                     $.ajax({
-                        url: 'Back/login.php',
+                        url: 'funciones/login.php',
                         type: 'POST',
                         dataType: 'text',
                         data: data,
@@ -96,7 +96,7 @@
                 }//if sesion
                 else{
                 $estado = true;
-                    header ("location:./Front/Bienvenido.php");
+                    header ("location:./Back/Bienvenido.php");
                 }
             ?>
         </body>

@@ -18,7 +18,7 @@
                     $(this).parent().parent().fadeOut(); /// es la animacion para hacer desaparecer algo
 
                     $.ajax({
-                        url: '../Back/eliminar_productos.php', /// a donde lo vas a mandar
+                        url: '../funciones/eliminar_productos.php', /// a donde lo vas a mandar
                         type: 'post', /// voy a enviar algo
                         dataType: 'text', /// voy a mandar texto lineal 
                         data: 'id=' + fila, // atributo que vas a mandar +su valor 
@@ -41,16 +41,18 @@
 
 <body>
 <?php
-    require("../Back/sesion.php");
+    require("../funciones/sesion.php");
     if($estado)
        {   
 ?><!--Inicio de If para validar sesion activa-->
-
-    <div class="nav-bg">
+<div class="nav-bg">
         <nav class="navegacion-principal contenedor">
             <a href="Bienvenido.php">Inicio</a>
-            <a href="B1.-Listadmins.php">Administradores</a>
+            <a href="Listadmins.php">Administradores</a>
             <a href="Lista_productos.php">Productos</a>
+            <a href="banners.php">Banners</a>
+            <a href="#">Pedidos</a>
+            <a href="../funciones/cerrarSesion.php">Cerrar Sesion</a>
            <!-- <a href="B3.-Alta.php">Alta de administradores</a>
             <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
             <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
@@ -58,7 +60,7 @@
     </div>
 
     <?php
-    require "../Back/conecta.php";
+    require "../funciones/conecta.php";
     /*$conexion=conexion();*/
     $sql = "SELECT * FROM productos WHERE eliminado=0";
     $res = mysqli_query($con, $sql);
@@ -114,8 +116,8 @@
                             <?= $objeto->codigo ?>
                         </td>
                         <td><input class="boton1 delete" id="eliminar" type="button" value="eliminar" /><br></td>
-                        <td><a href="../Back/detalles_productos.php?id=<?=$objeto->id ?>"><input class="boton" type="button" value="detalles" /><br></td>
-                        <td><a href="../Back/productos_editar.php?id=<?= $objeto->id ?>"><input class="boton" type="button" value="editar" /><br></td>
+                        <td><a href="detalles_productos.php?id=<?=$objeto->id ?>"><input class="boton" type="button" value="detalles" /><br></td>
+                        <td><a href="productos_editar.php?id=<?= $objeto->id ?>"><input class="boton" type="button" value="editar" /><br></td>
                     </tr>
                 </tbody>
             </table>

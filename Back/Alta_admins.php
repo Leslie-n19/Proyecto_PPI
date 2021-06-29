@@ -45,7 +45,7 @@
                     var form = $('#forma1')[0];
                     var data = new FormData(form);
                     $.ajax({
-                        url: '../Back/alta.php',
+                        url: '../funciones/alta_admins.php',
                         type: 'POST',
                         dataType: 'text',
                         data: data,
@@ -58,7 +58,7 @@
                                 alert('No registro');
                             }
                             if (res == 1) {
-                                location.href = "B1.-Listadmins.php";
+                                location.href = "Listadmins.php";
                             }
                             if (res == 2) {
                                 existe(res);
@@ -73,7 +73,7 @@
 
 <body>
 <?php
-    require("../Back/sesion.php");
+    require("../funciones/sesion.php");
     if($estado)
        {   
 ?><!--Inici de If para validar sesion activa-->
@@ -81,10 +81,14 @@
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
             <a href="Bienvenido.php">Inicio</a>
-            <a href="B1.-Listadmins.php">Lista de administradores</a>
-            <a href="B3.-Alta.php">Alta de administradores</a>
+            <a href="../Back/Listadmins.php">Administradores</a>
+            <a href="Lista_productos.php">Productos</a>
+            <a href="banners.php">Banners</a>
+            <a href="#">Pedidos</a>
+            <a href="../funciones/cerrarSesion.php">Cerrar Sesion</a>
+           <!-- <a href="B3.-Alta.php">Alta de administradores</a>
             <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
-            <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> <!--Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
+            <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
     <a href="B1.-Listadmins.php"><input class="boton regre" type="button" value="Regresar"> </a>

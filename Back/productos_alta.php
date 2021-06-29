@@ -45,7 +45,7 @@
                     var form = $('#forma1')[0];
                     var data = new FormData(form);
                     $.ajax({
-                        url: 'alta_productos.php',
+                        url: '../funciones/alta_productos.php',
                         type: 'POST',
                         dataType: 'text',
                         data: data,
@@ -58,7 +58,7 @@
                                 alert('No registro');
                             }
                             if (res == 1) {
-                                location.href = "../Front/Lista_productos.php";
+                                location.href = "../Back/Lista_productos.php";
                             }
                             if (res == 2) {
                                 existe(res);
@@ -73,7 +73,7 @@
 
 <body>
 <?php
-    require("../Back/sesion.php");
+    require("../funciones/sesion.php");
     if($estado)
        {   
 ?><!--Inici de If para validar sesion activa-->
