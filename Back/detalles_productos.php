@@ -28,11 +28,12 @@
 
     <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
-            <a href="Bienvenido.php">Inicio</a>
-            <a href="B1.-Listadmins.php">Lista de administradores</a>
-            <a href="B3.-Alta.php">Alta de administradores</a>
+            <a href="../Front/Bienvenido.php">Inicio</a>
+            <a href="B1.-Listadmins.php">Administradores</a>
+            <a href="Lista_productos.php">Productos</a>
+           <!-- <a href="B3.-Alta.php">Alta de administradores</a>
             <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
-            <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> <!--Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
+            <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
     <a href="../Front/Lista_productos.php"><input class="boton regre" type="button" value="Regresar"></a>
