@@ -20,6 +20,7 @@ else{
     $row = mysqli_fetch_assoc($res);
     $_SESSION['nombre'] = $row['nombre'];
     $_SESSION['id'] =  $row['id'];
+    $_SESSION['rol'] =  $row['rol'];
     echo 1;
 }
 ?>

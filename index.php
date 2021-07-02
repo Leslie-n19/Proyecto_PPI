@@ -47,7 +47,7 @@
                             } 
                             else 
                             { 
-                                location.href="Front/Bienvenido.php";   
+                                location.href="Back/Bienvenido.php";   
                             }
                         }
                             });
@@ -60,7 +60,7 @@
         </head>
         <body>
         <?php
-            require("./Back/sesion.php");
+            require("./funciones/sesion.php");
             if($estado==false)
             {   
         ?>

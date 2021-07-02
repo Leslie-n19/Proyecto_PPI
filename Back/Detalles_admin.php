@@ -33,7 +33,7 @@
             <a href="Listadmins.php">Administradores</a>
             <a href="Lista_productos.php">Productos</a>
             <a href="banners.php">Banners</a>
-            <a href="#">Pedidos</a>
+            <a href="pedidos.php">Pedidos</a>
             <a href="../funciones/cerrarSesion.php">Cerrar Sesion</a>
            <!-- <a href="B3.-Alta.php">Alta de administradores</a>
             <a href="B5.-Editar.php?id=<?= $_SESSION['id'] ?>">Edición de administrador</a> 
@@ -49,8 +49,10 @@
             <p class="card-text">Rol: <?php
                                         if ($rol == 1) {
                                             echo 'Administrador';
-                                        } else {
+                                        } if ($rol == 2) {
                                             echo 'Ejecutivo';
+                                        } else{
+                                            echo 'No tiene rol';
                                         }
                                         ?></p>
             <p class="card-text">Estatus: <?php
@@ -60,7 +62,7 @@
                                                 echo 'Inactivo';
                                             }
                                             ?></p>
-            <a href="B1.-Listadmins.php" class="boton">Lista de administradores</a>
+            <a href="Listadmins.php" class="boton">Lista de administradores</a>
         </div>
     </div>
     <?php

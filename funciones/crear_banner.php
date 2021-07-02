@@ -1,5 +1,5 @@
 <?php
-require "../Back/conecta.php";
+require "../funciones/conecta.php";
 
 $file_name = $_FILES['archivo']['name'];
 
