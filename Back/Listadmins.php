@@ -45,8 +45,7 @@
     if($estado)
        {   
 ?><!--Inicio de If para validar sesion activa-->
-
-    <<div class="nav-bg">
+    <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
             <a href="Bienvenido.php">Inicio</a>
             <a href="Listadmins.php">Administradores</a>

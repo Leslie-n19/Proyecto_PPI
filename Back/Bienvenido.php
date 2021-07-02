@@ -39,6 +39,7 @@
                 {
                     $estado = true;*/
                     echo "<h2>", $_SESSION['nombre'], "</h2>";
+                    echo "<h2>", $_SESSION['rol'], "</h2>";
                 /*}
                 else{
                 $estado = false;
@@ -46,12 +47,12 @@
                 }*/
             ?>
             <div class="menu">
-            <a href="B1.-Listadmins.php"><input class="botonwel" type="button" value="Lista de administradores" />
+            <a href="Listadmins.php"><input class="botonwel" type="button" value="Lista de administradores" />
             <br>
             <br>
-            <a href="B3.-Alta.php"><input class="botonwel" type="button" value="Crear administradores" />
+            <a href="Alta_admins.php"><input class="botonwel" type="button" value="Crear administradores" />
             <br><br><br><br>
-            <a class="cerrar" href="../Back/cerrarSesion.php">Cerrar sesión</a>
+            <a class="cerrar" href="../funciones/cerrarSesion.php">Cerrar sesión</a>
             </div>
             
         </div>

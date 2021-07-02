@@ -45,9 +45,13 @@
                                 $('h5').text(name + ' no existe')
                                 $("h5").hide(5000); //despues lo escondera
                             } 
-                            else 
+                            else if (res == 1) 
                             { 
-                                location.href="Front/Bienvenido.php";   
+                                location.href="Back/Bienvenido.php";   
+                            }
+                            else if (res == 2) 
+                            { 
+                                location.href="cliente/index.php";   
                             }
                         }
                             });
@@ -60,7 +64,7 @@
         </head>
         <body>
         <?php
-            require("./Back/sesion.php");
+            require("./funciones/sesion.php");
             if($estado==false)
             {   
         ?>

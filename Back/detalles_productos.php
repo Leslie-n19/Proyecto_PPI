@@ -36,10 +36,10 @@
             <a href="B4.-Detalles.php?id=<?=$_SESSION['id']?>">Detalles de administrador</a> Se manda el parametro del id para que muestre la información usuario que inicio sesión-->
         </nav>
     </div>
-    <a href="../Front/Lista_productos.php"><input class="boton regre" type="button" value="Regresar"></a>
+    <a href="../Back/Lista_productos.php"><input class="boton regre" type="button" value="Regresar"></a>
     <div class="tarjeta">
         <div class="card-body">
-            <img height="200" src="../img/<?= $row['archivo_n'] ?>">
+            <img height="200" src="../img/<?= $row['file'] ?>">
             <h1 class="card-title">Nombre: <?= $row['nombre'] ?> Código:<?= $row['codigo'] ?></h1>
             <p class="card-text">Descripción: <?= $row['descripcion'] ?></p>
             <p class="card-text">Costo: $<?= $row['costo'] ?></p>
