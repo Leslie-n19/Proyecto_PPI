@@ -1,18 +1,21 @@
 <?php
     require "../funciones/conecta.php";
 
-    $sql = "SELECT id FROM venta ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT id FROM pedidos ORDER BY id DESC LIMIT 1";
     $res = mysqli_query($con,$sql);
     $fila = mysqli_num_rows($res);
 
 
     if($fila){
         $registro = $res->fetch_object();
-        $id_venta = $registro->folio;
+        $id_venta = $registro->id;
     }
 
-    $sql = "UPDATE venta SET status = 1 ;";
+    $sql = "UPDATE pedidos SET estatus = 1  ;";
     $res = mysqli_query($con, $sql);
+
+    $crear = "INSERT INTO pedidos VALUES (0,'$time','$cliente','0')";
+    $res = mysqli_query($con,$sql);
     
     if ($res)
         echo 1;

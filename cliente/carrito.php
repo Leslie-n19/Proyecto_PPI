@@ -33,28 +33,28 @@
     <?php
                
                require "../funciones/conecta.php";
-    $sql = "SELECT id FROM venta ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT id FROM pedidos ORDER BY id DESC LIMIT 1";
     $res = mysqli_query($con,$sql);
     $fila = mysqli_num_rows($res);
 
         if($fila){
           $registro = $res->fetch_object();
-          $id_venta = $registro->id;
+          $id_pedidos = $registro->id;
             }
     
-    $sql = "SELECT status FROM venta ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT estatus FROM pedidos ORDER BY id DESC LIMIT 1";
     $res = mysqli_query($con,$sql);
     $fila = mysqli_num_rows($res);
 
         if($fila){
           $registro = $res->fetch_object();
-          $status = $registro->status;
+          $status = $registro->estatus;
             }
     if($status==0){
         
                $sql = "SELECT *
-                    FROM detalle_venta
-                    WHERE id_pedido=$id_venta";
+                    FROM pedidos_productos
+                    WHERE id_pedido =  $id_pedidos ";
             $res = mysqli_query($con, $sql);
             $num = mysqli_num_rows($res);
         ?>

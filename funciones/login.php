@@ -7,7 +7,7 @@ $pass = $_POST["pass"];
 
 $clave_md5 = md5($pass);
 
-$sql = "SELECT * FROM administradores WHERE correo = '$mail' AND pass ='$clave_md5' AND eliminado = '0' ";
+$sql = "SELECT * FROM administradores WHERE correo = '$mail' AND pass ='$pass' AND eliminado = '0' ";
 $res = mysqli_query($con,$sql);
 $fila = mysqli_num_rows($res);
 

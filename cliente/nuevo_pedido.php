@@ -11,20 +11,21 @@
     ini_set('date.timezone','America/Mexico_City'); ///Esta es una funcion que toma la direccion geografica
     $time = date('Y-m-d', time());                  ///y en una variable, ingresa la fecha
     
+
     /// checa si en 'venta' hay algun registro con el status abierto == 0
-    $sql = "SELECT status FROM venta ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT estatus FROM pedidos ORDER BY id DESC LIMIT 1";
     $res = mysqli_query($con,$sql);
     $fila = mysqli_num_rows($res);
 
     if($fila){
         $registro = $res->fetch_object();
-        $status = $registro->status;
+        $status = $registro->estatus;
     }  /// Toma en que 'status' esta el ultimo pedido
 
     if($status == 0) /// Si el pedido esta abierto
     {
 
-        $sql = "SELECT id FROM venta ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT id FROM pedidos ORDER BY id DESC LIMIT 1";
         $res = mysqli_query($con,$sql);
         $fila = mysqli_num_rows($res);
 
@@ -33,10 +34,9 @@
             $id_venta = $registro->id;
         }
 
-        $sql = "INSERT INTO detalle_venta VALUES (0,'$id_venta','$id_producto','1','$value_producto')" ; 
+        $sql = "INSERT INTO pedidos_productos VALUES (0,'$id_venta','$id_producto','1','$value_producto')" ; 
     }else{
-
-        $sql = "INSERT INTO venta VALUES (0,'$time','$cliente','0')";
+        $sql = "INSERT INTO pedidos VALUES (0,'$time','$cliente','0')";
         $res = mysqli_query($con,$sql);
         $fila = mysqli_num_rows($res);
 
@@ -44,7 +44,8 @@
             $registro = $res->fetch_object();
             $id_venta = $registro->id;
         }
-        $sql = "INSERT INTO detalle_venta VALUES (0,'$id_venta','$id_producto','1','$value_producto')" ;
+        $crear = "INSERT INTO pedidos_productos VALUES (0,'$id_venta','$id_producto','1','$value_producto')" ;
+        $res = mysqli_query($con, $crear);
     }
 
     $res = mysqli_query($con, $sql);

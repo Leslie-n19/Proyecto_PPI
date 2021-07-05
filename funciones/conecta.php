@@ -1,6 +1,6 @@
 <?php
 if(!defined ('HOST')) define('HOST', 'localhost');
-if(!defined ('BD')) define('BD', 'cliente01');
+if(!defined ('BD')) define('BD', 'cliente02');
 if(!defined ('USER_BD')) define('USER_BD', 'root');
 if(!defined ('PASS_BD')) define('PASS_BD', '');
 

@@ -39,7 +39,7 @@
         <div class="card-body">
 
             <?php
-            $sql = "SELECT * FROM detalle_venta WHERE id_pedido = '$id'";
+            $sql = "SELECT * FROM pedidos_productos WHERE id_pedido = '$id'";
             $res = mysqli_query($con, $sql);
             $num = mysqli_num_rows($res);
             $suma = 0;
